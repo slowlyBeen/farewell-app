@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>안녕히 계세요 여러분~ 🌸</title>
+    <title>안녕히 계세요 여러분~ </title>
 
     <!-- Firebase -->
     <script type="module">
@@ -64,9 +64,9 @@
             container.innerHTML = `
       <div class="admin-wrap">
         <div class="admin-header">
-          <div class="crown">👑</div>
+          <div class="crown"></div>
           <h1 class="admin-title">메시지 작성 패널</h1>
-          <p class="admin-sub">팀원별 마음 담은 편지를 작성하세요</p>
+          <p class="admin-sub">팀원별 메시지를 작성하세요</p>
         </div>
 
         <div class="card form-card">
@@ -76,19 +76,19 @@
           </div>
           <div class="form-row">
             <label>메시지</label>
-            <textarea id="msgText" placeholder="진심을 담아 써주세요 💌" class="inp textarea" rows="6"></textarea>
+            <textarea id="msgText" placeholder="진심을 담아 써주세요 ✉" class="inp textarea" rows="6"></textarea>
           </div>
           <button id="saveBtn" class="btn-primary" onclick="window._saveMsg()">
-            저장 &amp; QR 생성 ✨
+            저장 &amp; QR 생성
           </button>
         </div>
 
         <div id="qrResult" class="qr-result" style="display:none">
           <div class="card qr-card">
-            <p class="qr-name-label">📬 <span id="qrName"></span> 님의 QR</p>
+            <p class="qr-name-label"> <span id="qrName"></span> 님의 QR</p>
             <div id="qrCanvas" class="qr-box"></div>
             <p class="qr-url-label" id="qrUrl"></p>
-            <button class="btn-secondary" onclick="window._printQR()">🖨️ QR 인쇄 / 저장</button>
+            <button class="btn-secondary" onclick="window._printQR()">QR 인쇄 / 저장</button>
           </div>
         </div>
 
@@ -138,7 +138,7 @@
             function addToSavedList(to, url, id) {
                 window._savedItems.unshift({ to, url, id });
                 const list = document.getElementById('savedList');
-                list.innerHTML = `<h3 class="saved-title">📋 생성된 QR 목록</h3>` +
+                list.innerHTML = `<h3 class="saved-title">생성된 QR 목록</h3>` +
                     window._savedItems.map(item => `
           <div class="saved-item">
             <span class="saved-name">${item.to}</span>
@@ -191,9 +191,9 @@
                 page.innerHTML = `
         <div class="msg-wrap">
           <div class="card msg-card error-card">
-            <div class="error-icon">🌸</div>
+            <div class="error-icon"></div>
             <h2>이미 열람된 메시지예요</h2>
-            <p>이 메시지는 1회만 열람 가능합니다.<br>소중한 순간을 기억해주세요 💕</p>
+            <p>이 메시지는 1회만 열람 가능합니다.<br>소중한 순간을 기억해주세요 </p>
           </div>
         </div>`;
                 return;
@@ -202,14 +202,14 @@
             // 메시지 표시
             page.innerHTML = `
       <div class="msg-wrap">
-        <div class="envelope-anim">💌</div>
+        <div class="envelope-anim">✉</div>
         <div class="card msg-card">
           <p class="msg-to">To. <strong>${data.to}</strong> 님께</p>
           <div class="msg-divider"></div>
           <p class="msg-body">${data.message.replace(/\n/g, '<br>')}</p>
           <div class="msg-divider"></div>
-          <p class="msg-from">From. 봄이 🌸</p>
-          <p class="msg-once">⚠️ 이 메시지는 1회만 열람 가능합니다</p>
+          <p class="msg-from">From. 정빈</p>
+          <p class="msg-once">이 메시지는 1회만 열람 가능합니다</p>
         </div>
       </div>`;
         }
@@ -229,20 +229,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Dela+Gothic+One&display=swap');
 
         :root {
-            --sky:    #b8e8ff;
-            --pink:   #ffb3d1;
-            --deep:   #1a0533;
-            --gold:   #f5c842;
-            --cream:  #fff8f0;
-            --card-bg:#ffffffee;
-            --accent: #e8457a;
+            --sky:    #1a2a3a;
+            --pink:   #2c3e50;
+            --deep:   #0d1b2a;
+            --gold:   #00d4aa;
+            --cream:  #f0f4f8;
+            --card-bg:#fffffff0;
+            --accent: #00b894;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Noto Serif KR', serif;
-            background: linear-gradient(160deg, var(--sky) 0%, #d4b8ff 50%, var(--pink) 100%);
+            background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
             min-height: 100vh;
             color: var(--deep);
         }
@@ -465,10 +465,10 @@
 <div id="landing">
     <img src="farewell.png" alt="안녕히 계세요" class="hero-img" />
     <div class="hero-bubble">
-        <h1>안녕히 계세요 여러분~ 🌸</h1>
-        <p>전 이 세상의 모든 굴레와 속박을 벗어던지고<br>제 행복을 찾아 떠납니다…</p>
+        <h1>안녕히 계세요 여러분~</h1>
+        <p>전 이 세상의 모든 굴레와 속박을 벗어던지고<br>제 행복을 찾아 떠납니다</p>
         <p style="margin-top:1rem; color:#e8457a; font-weight:700">
-            📬 개인 QR 코드를 받으셨나요?<br>
+            개인 QR 코드를 받으셨나요?<br>
             <span style="font-weight:400; color:#555">QR을 스캔하면 당신만의 메시지를 볼 수 있어요</span>
         </p>
     </div>
