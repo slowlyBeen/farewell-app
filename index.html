@@ -27,29 +27,26 @@
         const db   = getFirestore(app);
         const auth = getAuth(app);
 
-        // 익명 로그인 후 앱 시작 (Firestore Rules 인증 연동용)
-        await signInAnonymously(auth);
-
         // UUID v4 생성
         function uuidv4() {
             return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
                 (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
         }
 
-        // ── 라우팅 ──────────────────────────────────────────────
-        const params = new URLSearchParams(location.search);
-        const msgId  = params.get('id');
-        const isAdmin = params.get('admin') === '1';
+        // ── 초기화 & 라우팅 (type=module은 defer 동작 → DOM 준비 후 실행) ──
+        async function init() {
+            try { await signInAnonymously(auth); } catch(e) { console.error('auth error:', e); }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            if (msgId) {
-                showViewPage(msgId);
-            } else if (isAdmin) {
-                showAdminPage();
-            } else {
-                showLandingPage();
-            }
-        });
+            const params  = new URLSearchParams(location.search);
+            const msgId   = params.get('id');
+            const isAdmin = params.get('admin') === '1';
+
+            if (msgId)        showViewPage(msgId);
+            else if (isAdmin) showAdminPage();
+            else              showLandingPage();
+        }
+
+        init();
 
         // ── 랜딩 ────────────────────────────────────────────────
         function showLandingPage() {
