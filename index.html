@@ -30,9 +30,6 @@
         // 익명 로그인 후 앱 시작 (Firestore Rules 인증 연동용)
         await signInAnonymously(auth);
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
         // UUID v4 생성
         function uuidv4() {
             return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
